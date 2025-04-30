@@ -20,7 +20,7 @@ for line in pdb_lines:
         current_frame = []
 
 # Ensure output directory exists
-output_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/reset_index'
+output_dir = 'data/reset_index'
 os.makedirs(output_dir, exist_ok=True)
 
 # Save each frame into its own file
