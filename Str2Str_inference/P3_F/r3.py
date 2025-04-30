@@ -10,10 +10,6 @@ import joblib
 import numpy as np
 from scipy.optimize import approx_fprime
 import os
-#from src.models.score.test_pot import grad_log_golP
-#import subprocess
-#from test_pot_fdm import grad_log_golP_FD
-#from test_pot import grad_log_golP
 import pickle
 
 class R3Diffuser:
@@ -231,21 +227,6 @@ class R3Diffuser:
                drift_adjustment[..., target_pair_linker[i, 0], :] += spring_force[:, i, :]
                drift_adjustment[..., target_pair_linker[i, 1], :] -= spring_force[:, i, :]
         
-        #print('da:',drift_adjustment)
-        ##############################################
-        # constant force
-        #vector = x_hat[..., [-1], :]-x_hat[..., [0], :]
-        #epsilon = 1e-8
-        #norm_vector = vector / (torch.norm(vector, dim=-1, keepdim=True) + epsilon)
-        # 1pN = 1/69.5 KCal/mol/A
-        # 1/KbT = 1.667 mol/KCal
-        # grad_logP = pN/KbT = 0.024 1/A
-        #convertion = 0.024/self.coordinate_scaling
-        #force = 0
-        #constant_force = force*convertion
-        #trans_drift[..., [-1], :] += norm_vector*constant_force  # Apply equal and opposite force to the second position
-        #trans_drift[..., [0], :] -= norm_vector*constant_force
-        
         ##############################################
         # here to ensure the Ca-Ca is 3.8A
         N = x_t.shape[1]
@@ -271,13 +252,8 @@ class R3Diffuser:
         # Apply the forces
         drift_adjustment[..., idx1, :] += spring_force
         drift_adjustment[..., idx2, :] -= spring_force
-        
-        #print('co:',drift_adjustment)
-        #print('sc:',score_t)
 
         trans_drift = (drift_adjustment)*J_hat
-        
-        #trans_drift = torch.zeros_like(x_t)
 
         rev_drift = (f_t - g_t ** 2 * (score_t+ trans_drift)) * dt * (0.5 if probability_flow else 1.)
         rev_diffusion = 0. if probability_flow else (g_t * sqrt(dt) * z)
