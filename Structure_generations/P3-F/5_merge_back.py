@@ -2,8 +2,7 @@ import os
 from natsort import natsorted
 
 # Folder containing the PDB files
-#folder = "individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed"
-folder = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE_with_H/atoms_125"
+folder = "data/individual_frames_pdb_str2str_local_reset_ACE_with_H/atoms_125"
 
 # Get all .pdb files and sort naturally
 pdb_files = [f for f in os.listdir(folder) if f.endswith(".pdb")]
