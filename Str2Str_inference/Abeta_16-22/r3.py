@@ -10,11 +10,7 @@ import joblib
 import numpy as np
 from scipy.optimize import approx_fprime
 import os
-#from src.models.score.test_pot import grad_log_golP
-#import subprocess
-from test_pot_fdm import grad_log_golP_FD
-#from test_pot import grad_log_golP
-import pickle
+from Abeta_biasing import grad_log_golP_FD
 
 class R3Diffuser:
     """VPSDE diffusion module."""
