@@ -2,9 +2,9 @@ import os
 import shutil
 
 # Paths
-selected_dir = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/selected"
-source_gro_dir = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/MD/individual_frames_gro_MD_local_reset"
-target_gro_dir = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/lib_gro"
+selected_dir = "data/selected"
+source_gro_dir = "MD/individual_frames_gro_MD_local_reset"
+target_gro_dir = "data/lib_gro"
 
 # Ensure target directory exists
 os.makedirs(target_gro_dir, exist_ok=True)
