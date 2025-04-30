@@ -10,12 +10,12 @@ import numpy as np
 from scipy.spatial import cKDTree
 
 # Load Ca and S coordinates for Str2Str (reference)
-ca_data = np.load('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/Ca10_local_coordinates_str2str.npy')
-s_data = np.load('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/s10_local_coordinates_str2str.npy')
+ca_data = np.load('data/Ca10_local_coordinates_str2str.npy')
+s_data = np.load('data/s10_local_coordinates_str2str.npy')
 
 # Load Ca and S coordinates for Simulation (model)
-ca_model = np.load('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/MD/Ca10_local_coordinates_simulation.npy')
-s_model = np.load('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/MD/s10_local_coordinates_simulation.npy')
+ca_model = np.load('MD/Ca10_local_coordinates_simulation.npy')
+s_model = np.load('MD/s10_local_coordinates_simulation.npy')
 
 # Check shapes to make sure they match
 assert ca_data.shape == s_data.shape, "Mismatch between Ca and S data shapes!"
@@ -51,7 +51,7 @@ for i in range(min(10, len(combined_data))):
     print(f"Closest model points (Ca + S):\n{combined_model[indices[i]]}")
 
 # Optional: save all indices and distances
-np.save('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/top10_closest_model_indices.npy', indices)
+np.save('data/top10_closest_model_indices.npy', indices)
 #np.save('top10_distances.npy', distances)
 
 # Example: print a specific model point and data point for verification
