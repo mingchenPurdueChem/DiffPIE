@@ -1,4 +1,4 @@
-input_pdb = "/home/yanbin/Apps/Str2Str/logs/inference/runs/Au_F_2/samples/all_delta/GKLVFFAEG_F_2.pdb"
+input_pdb = "Str2Str/logs/inference/runs/Au_F_2/samples/all_delta/GKLVFFAEG_F_2.pdb"
 output_pdb = input_pdb.replace(".pdb", "_noGLY.pdb")
 
 with open(input_pdb, "r") as infile, open(output_pdb, "w") as outfile:
