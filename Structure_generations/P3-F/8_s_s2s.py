@@ -11,7 +11,7 @@ import numpy as np
 from natsort import natsorted
 
 # Folder containing processed PDB files (local reset frames)
-input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed/'
+input_dir = 'data/individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed/'
 
 # Residue number and atom name for CA in residue 10
 ca_res_10_resid = 9
@@ -57,4 +57,4 @@ ca10_local_coords_array = np.array(ca10_local_coords)
 #print(ca10_local_coords_array[0:2000, 2])
 
 # Save to file
-np.save('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/s10_local_coordinates_str2str.npy', ca10_local_coords_array)
+np.save('data/s10_local_coordinates_str2str.npy', ca10_local_coords_array)
