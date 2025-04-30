@@ -4,7 +4,7 @@ import shutil
 import numpy as np
 
 # Load the PDB file
-file_path = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/8q1r_pep_ALA.pdb'
+file_path = 'data/8q1r_pep_ALA.pdb'
 
 with open(file_path, 'r') as file:
     pdb_lines = file.readlines()
@@ -20,7 +20,7 @@ for line in pdb_lines:
         current_frame = []
 
 # Ensure output directory exists
-output_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str'
+output_dir = 'data/individual_frames_pdb_str2str'
 os.makedirs(output_dir, exist_ok=True)
 
 # Save each frame into its own file
@@ -108,8 +108,8 @@ def reset_frame_to_local(pdb_file, output_file):
         file.writelines(transformed_lines)
 
 # Paths
-input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str'
-output_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset'
+input_dir = 'data/individual_frames_pdb_str2str'
+output_dir = 'data/individual_frames_pdb_str2str_local_reset'
 
 os.makedirs(output_dir, exist_ok=True)
 
