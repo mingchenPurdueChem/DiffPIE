@@ -4,7 +4,7 @@ import shutil
 import numpy as np
 
 # Load the PDB file
-file_path = '/home/yanbin/Desktop/Projects/GolP/Full_data_code/4_18/Au_F_2/KLVFFAE.pdb'
+file_path = 'data/KLVFFAE.pdb'
 
 with open(file_path, 'r') as file:
     pdb_lines = file.readlines()
@@ -20,7 +20,7 @@ for line in pdb_lines:
         current_frame = []
 
 # Ensure output directory exists
-output_dir = '/home/yanbin/Desktop/Projects/GolP/Full_data_code/4_18/Au_F_2/individual'
+output_dir = 'data/individual'
 os.makedirs(output_dir, exist_ok=True)
 
 # Save each frame into its own file
