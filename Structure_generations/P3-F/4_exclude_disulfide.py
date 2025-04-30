@@ -3,7 +3,7 @@ import mdtraj as md
 import shutil
 import glob
 
-input_dir = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE_with_H"  # ✅ Set this to your actual folder
+input_dir = "data/individual_frames_pdb_str2str_local_reset_ACE_with_H"  # ✅ Set this to your actual folder
 pdb_files = glob.glob(os.path.join(input_dir, "*.pdb"))
 
 for pdb_file in pdb_files:
