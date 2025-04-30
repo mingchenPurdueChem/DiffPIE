@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE"
-output_dir="/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE_with_H"
+input_dir="data/individual_frames_pdb_str2str_local_reset_ACE"
+output_dir="data/individual_frames_pdb_str2str_local_reset_ACE_with_H"
 
 mkdir -p "$output_dir"
 
