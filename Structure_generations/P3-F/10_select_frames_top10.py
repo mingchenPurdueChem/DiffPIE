@@ -11,12 +11,12 @@ import shutil
 import numpy as np
 
 # Load the top 10 closest frame numbers for each frame
-top10_closest_frame_numbers = np.load('/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/top10_closest_model_indices.npy')
+top10_closest_frame_numbers = np.load('data/top10_closest_model_indices.npy')
 top10_closest_frame_numbers = top10_closest_frame_numbers + 1  # Convert to 1-based indexing if necessary
 
 # Paths
-input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/MD/individual_frames_gro_MD_local_reset'
-output_base_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/selected_gro_frames_top10'
+input_dir = 'MD/individual_frames_gro_MD_local_reset'
+output_base_dir = 'data/selected_gro_frames_top10'
 
 # Make sure the top-level output directory exists
 os.makedirs(output_base_dir, exist_ok=True)
