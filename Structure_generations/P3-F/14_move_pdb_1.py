@@ -2,9 +2,9 @@ import os
 import shutil
 
 # Paths
-source_root = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/Str2Str_local_MD_screened"
-destination_root = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/selected"
-kept_frames_file = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/kept_frames.txt"
+source_root = "data/Str2Str_local_MD_screened"
+destination_root = "data/selected"
+kept_frames_file = "data/kept_frames.txt"
 
 # Read kept frame names
 with open(kept_frames_file, 'r') as f:
