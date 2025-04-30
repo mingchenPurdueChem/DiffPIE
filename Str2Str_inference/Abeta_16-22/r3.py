@@ -10,10 +10,7 @@ import joblib
 import numpy as np
 from scipy.optimize import approx_fprime
 import os
-#from src.models.score.test_pot import grad_log_golP
-#import subprocess
-from test_pot_fdm import grad_log_golP_FD
-#from test_pot import grad_log_golP
+from Abeta_biasing import grad_log_golP_FD
 import pickle
 
 class R3Diffuser:
@@ -160,24 +157,10 @@ class R3Diffuser:
             [..., 3] positions at next step t-1.
         """
         t_current = t
-        #m = 2 how rappid change is in mid
-        #m = torch.tensor(20.0)
-        #force_scale = 1-(torch.exp(m * t_current[0]) - 1) / (torch.exp(m) - 1)
-        #force_scale = 0.01
-        #print(force_scale =)
         ######################### force scaling
         m = torch.tensor(1.5)
         force_scale = 1-(torch.exp(m * t_current[0]) - 1) / (torch.exp(m) - 1)
         force_scale = force_scale.to(torch.float32)
-        #beta_t = self.marginal_b_t(t)
-        #beta_t = beta_t[..., None, None]
-        #print(beta_t)
-        #cond_var = torch.exp(-beta_t)
-        #force_scale = cond_var
-        #print(t)
-        #print(force_scale)
-        
-        #timestep = int(t_current[0] / dt)
         
         t = inflate_array_like(t, x_t)
         x_t = self.scale(x_t)
