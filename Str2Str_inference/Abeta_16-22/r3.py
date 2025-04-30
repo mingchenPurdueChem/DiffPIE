@@ -138,8 +138,8 @@ class R3Diffuser:
         center: bool = True,
         noise_scale: float = 1.0,
         probability_flow: bool = True,
-        target_distance: torch.Tensor = torch.tensor([0]), # need to scale by 0.1 so in nm
-        target_pair_linker: torch.Tensor = torch.tensor([[0, 7],[1, 6],[1, 8]]),
+        target_distance: None, # need to scale by 0.1 so in nm
+        target_pair_linker: None,
         k_spring: float = 10
     ):
         """Simulates the reverse SDE for 1 step
@@ -176,8 +176,6 @@ class R3Diffuser:
         trans_inter = torch.zeros_like(x_t)
         with torch.no_grad():
             x_hat = x_hat.detach().clone().requires_grad_(True)
-            #x_hat.requires_grad = True
-            #print(f"x_hat grad_fn (before computation): {x_hat.grad_fn}")
             pot_dir = './GoldP'
             pt_files = [f for f in os.listdir(pot_dir) if f.endswith('_logP.pt')]
             full_sequence = 'GKLVFFAEG'
@@ -201,17 +199,8 @@ class R3Diffuser:
             # Identify indices where x_hat[..., 2] > Au_Z_cutoff
             beyond_mask = x_hat[..., 2] > Au_Z_cutoff
             dis = Au_Z_cutoff - x_hat[..., 2]
-            #print(dis[...,0])
-            #print(beyond_mask)
-            #print(beyond_mask.shape)
             beyond_indices = torch.nonzero(beyond_mask, as_tuple=False)
-            # Get indices where the mask is True
-            
-            #print("Beyond mask:", beyond_mask)
-            #print("Beyond mask indices:", beyond_indices)# Get indices where the mask is True
             beyond_dis = x_hat[beyond_indices[:, 0], beyond_indices[:, 1], 2] - Au_Z_cutoff
-            
-            #print(f"beyond_dis grad_fn (before computation): {beyond_dis.grad_fn}")
         
             # Compute spring force
             spring_force = -k_rep * beyond_dis
@@ -225,50 +214,20 @@ class R3Diffuser:
         
             # Iterate over residues
             for full_res in range(x_hat.shape[1]-2):#two G
-        #        # Compute displacements for current, previous, and next residues
                 res = full_res + 1
                 cood_1 = Au_Z - x_hat[:, res, 2]  # Shape: (N,)
                 codd_0 = (Au_Z - x_hat[:, res - 1, 2]) if res > 0 else torch.zeros_like(cood_1)
                 codd_2 = (Au_Z - x_hat[:, res + 1, 2]) if res < x_hat.shape[1] - 1 else torch.zeros_like(cood_1)
-        
-                # Stack displacements into a single tensor
                 codd = torch.stack([codd_0, cood_1, codd_2], dim=-1)  # Shape: (N, 3)
-                
-                #with torch.enable_grad():
                 grad_logP = grad_log_golP_FD(codd, full_res, sequence_to_file, sequence_list)
-                #    if grad_logP.grad is not None:
-                #        grad_logP.grad.zero_()
-                #if not torch.isnan(codd).any() and timestep % 100 == 0:
-                #if not torch.isnan(codd).any():
-                    #print("Warning: codd contains NaN values!")
-                    #print(codd)
-                    #print(grad_logP*force_scale)
-                    #print(timestep)
-                    #break
-                
                 truncated_force = torch.clamp(grad_logP * force_scale*2, min=-3, max=3)
-                #truncated_force = grad_logP * force_scale*2
-                #print(grad_logP.shape)
-                #truncated_force = truncated_force.detach().clone().requires_grad_(False)
                 trans_inter[..., res, 2] = -truncated_force # Positive grad_logP means elongate distance
-                # Compute gradient of logP
-                #grad_logP = grad_log_golP(codd, res, sequence_to_file, sequence_list)
-        
-                # Update trans_inter for the current residue
         
             # Reset trans_inter for beyond indices
             trans_inter[beyond_indices[:, 0], beyond_indices[:, 1], 2] = 0
         
             # Compute the final trans_drift
-            trans_drift_0 = trans_inter + trans_rep
-            #print(trans_inter[...,0,2])
-            #print(trans_rep[...,0,2])
-            #print(score_t[...,0,2])
-            #trans_drift = trans_inter + trans_rep
-            
-                #for idx, force in zip(beyond_indices, spring_force):
-                #    trans_inter[idx[0], idx[1], 2] = 0  # remove interaction for beyond        
-        
+            trans_drift_0 = trans_inter + trans_rep    
         ##############################################
         # here to ensure the Ca-Ca is 3.8A
         N = x_t.shape[1]
