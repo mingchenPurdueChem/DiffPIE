@@ -4,11 +4,9 @@ from openmm.app import *
 from openmm import *
 from openmm.unit import *
 
-input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/reset_index'
-
-#input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/reset_index'
-output_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE_with_H_relaxed'
-energy_file = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/peptide_energy.txt'
+input_dir = 'data/reset_index'
+output_dir = 'data/individual_frames_pdb_str2str_local_reset_ACE_with_H_relaxed'
+energy_file = 'data/peptide_energy.txt'
 
 # Create output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
@@ -143,8 +141,8 @@ def reset_frame_to_local(pdb_file, output_file):
         file.writelines(transformed_lines)
 
 # Paths
-input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE_with_H_relaxed'
-output_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed'
+input_dir = 'data/individual_frames_pdb_str2str_local_reset_ACE_with_H_relaxed'
+output_dir = 'data/individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed'
 
 os.makedirs(output_dir, exist_ok=True)
 
