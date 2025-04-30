@@ -31,6 +31,6 @@ def process_all_pdbs(input_folder, output_folder):
             #print(f"Processed: {filename}")
 
 # Example usage:
-input_dir = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_AA"
-output_dir = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_ACE"
+input_dir = "data/individual_frames_pdb_str2str_local_reset_AA"
+output_dir = "data/individual_frames_pdb_str2str_local_reset_ACE"
 process_all_pdbs(input_dir, output_dir)
