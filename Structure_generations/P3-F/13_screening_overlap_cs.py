@@ -11,9 +11,9 @@ s_index = 137  # 0-based
 c_index = 134  # cb
 
 # Paths
-input_base_folder = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/Str2Str_local_MD'
-output_base_folder = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/Str2Str_local_MD_screened'
-kept_list_file = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/kept_structures.txt'
+input_base_folder = 'data/Str2Str_local_MD'
+output_base_folder = 'data/Str2Str_local_MD_screened'
+kept_list_file = 'data/kept_structures.txt'
 
 def parse_coords(pdb_file):
     coords = []
@@ -74,8 +74,8 @@ print("Screening complete.")
 print(f"Screened files saved in: {output_base_folder}")
 print(f"Kept structure list saved in: {kept_list_file}")
 
-kept_file = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/kept_structures.txt"
-output_file = "/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/kept_frames.txt"
+kept_file = "data/kept_structures.txt"
+output_file = "data/kept_frames.txt"
 frame_labels = set()
 
 # Read and collect unique frame labels
@@ -95,7 +95,7 @@ print(f"Saved kept frames to: {output_file}")
 
 from natsort import natsorted
 
-kept_frames_file = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/kept_frames.txt'
+kept_frames_file = 'data/kept_frames.txt'
 
 # Read frame labels
 with open(kept_frames_file, 'r') as f:
