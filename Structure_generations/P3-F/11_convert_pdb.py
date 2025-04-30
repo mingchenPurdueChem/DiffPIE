@@ -10,8 +10,8 @@ import os
 from natsort import natsorted
 import mdtraj as md
 
-input_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/selected_gro_frames_top10'
-output_base_dir = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/selected_pdb_frames_top10'
+input_dir = 'data/selected_gro_frames_top10'
+output_base_dir = 'data/selected_pdb_frames_top10'
 
 os.makedirs(output_base_dir, exist_ok=True)
 
