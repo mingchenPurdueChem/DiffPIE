@@ -10,9 +10,9 @@ import os
 from natsort import natsorted
 
 # Define the folders
-aa_folder = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed/'
-sim_base_folder = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/selected_pdb_frames_top10'
-output_base_folder = '/home/yanbin/Desktop/Projects/organic_linker/cyclic_linker_2.0/data/biased/2/Str2Str_local_MD'
+aa_folder = 'data/individual_frames_pdb_str2str_local_reset_AA_with_H_relaxed/'
+sim_base_folder = 'data/selected_pdb_frames_top10'
+output_base_folder = 'data/Str2Str_local_MD'
 
 # Make sure output directory exists
 os.makedirs(output_base_folder, exist_ok=True)
