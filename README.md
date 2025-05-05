@@ -9,8 +9,7 @@ Sidechain generation and system construction
 
 🔧 Example 1: Aβ(16–22) Adsorption on Au(111)
 1. Biasing Force Setup
-
-    The code for generating biasing forces is located in:
+The code for generating biasing forces is located in:
 
     Str2Str_inference/Abeta_16-22/GoldP
 
