@@ -21,13 +21,4 @@ After inference, use the post-processing script:
 This script integrates sidechains using MD simulation data. Required MD trajectories for this step can be downloaded from:https://drive.google.com/drive/folders/1dFnwRA-LjiuNRPm_x5LmsAWaiW4Khl0h?usp=drive_link
 
 Example 2: Stapled Peptide (PDB: 8Q1R)
-
-(Fill in similar steps if available for this case, or leave it as "coming soon")
-
-Str2Str_inference/
-├── Abeta_16-22/
-│   └── GoldP/               # Code for applying gold surface bias
-├── Abeta_biasing.py         # Main script to run biased inference
-Structure_generations/
-├── Abeta/
-│   └── DiffPIE_sidechain_Au.py  # Postprocessing & sidechain placement
+("coming soon")
