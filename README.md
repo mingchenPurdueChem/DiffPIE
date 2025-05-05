@@ -1,15 +1,11 @@
 # DiffPIE
-This repository demonstrates two examples of using DiffPIE to generate protein structures under realistic external environments:
-
-    Aβ(16–22) peptide adsorption on an Au(111) surface
-
-    A stapled peptide (PDB: 8Q1R)
+This repository demonstrates two examples of using DiffPIE to generate protein structures under realistic external environments: Aβ(16–22) peptide adsorption on an Au(111) surface and a stapled peptide (PDB: 8Q1R)
 
 Each case involves two main tasks:
 
-    Biasing force generation and application during Str2Str inference
+Biasing force generation and application during Str2Str inference
 
-    Sidechain generation and system construction
+Sidechain generation and system construction
 
 🔧 Example 1: Aβ(16–22) Adsorption on Au(111)
 1. Biasing Force Setup
