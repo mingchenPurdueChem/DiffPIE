@@ -17,7 +17,7 @@ os.makedirs(base_path, exist_ok=True)
 cache_dir = f"{base_path}/Cache"
 os.makedirs(cache_dir, exist_ok=True)
 ################################## # Load the PDB file to remove GLY and to set to individual frames
-str2str_path = "/home/yanbin/Apps/Str2Str/logs/inference/runs/Au_F_2/samples/all_delta/"
+str2str_path = "Str2Str/logs/inference/runs/Au_F_2/samples/all_delta/"
 str2str_pdb_list = glob.glob(os.path.join(str2str_path, '*.pdb'))
 str2str_pdb = str2str_pdb_list[0]
 file_path = os.path.join(base_path, 'Str2Str.pdb')
