@@ -45,7 +45,7 @@ if not os.path.isdir(pot_dir):
 pot_dir = './One_Ca'
 if not os.path.isdir(pot_dir):
     raise FileNotFoundError(f"Directory '{pot_dir}' does not exist.")
-MD_traj = f"./Traj"
+MD_traj = './Traj'
 if not os.path.isdir(MD_traj):
     raise FileNotFoundError(f"Directory '{MD_traj}' does not exist.")
 ##################################
