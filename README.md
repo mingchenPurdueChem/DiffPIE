@@ -5,15 +5,13 @@ Each case involves two main tasks:
 Biasing force generation and application during Str2Str inference
 Sidechain generation and system construction
 
-🔧 Example 1: Aβ(16–22) Adsorption on Au(111)
+Example 1: Aβ(16–22) Adsorption on Au(111)
 1. Biasing Force Setup
 The code for generating biasing forces is located in:
 
     Str2Str_inference/Abeta_16-22/GoldP
 
-To run inference with biasing: Place the GoldP folder and Abeta_biasing.py script into the root of your local Str2Str codebase. Replace the following files in Str2Str/src/ with the modified versions provided:
-diffusion_module.py, frame.py, and r3.py
-Use the included diffusion.yaml as the recommended configuration for inference. Feel free to modify settings based on your system.
+ To run inference with biasing: Place the GoldP folder and Abeta_biasing.py script into the root of your local Str2Str codebase. Replace the following files in Str2Str/src/ with the modified versions provided: diffusion_module.py, frame.py, and r3.py. Use the included diffusion.yaml as the recommended configuration for inference. Feel free to modify settings based on your system.
 
 2. Sidechain Generation and System Construction
 
