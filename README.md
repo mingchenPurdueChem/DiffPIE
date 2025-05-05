@@ -19,7 +19,7 @@ After inference, use the post-processing script:
     Structure_generations/Abeta/DiffPIE_sidechain_Au.py
 
 This script integrates sidechains using MD simulation data. Required MD trajectories for this step can be downloaded from:[https://drive.google.com/drive/folders/1dFnwRA-LjiuNRPm_x5LmsAWaiW4Khl0h?usp=drive_link
-](https://drive.google.com/drive/folders/1nnBrfQ27QTpYfI27mRsjAwOfXVl-vZak?usp=drive_link)
+](https://drive.google.com/drive/folders/1nnBrfQ27QTpYfI27mRsjAwOfXVl-vZak?usp=drive_link). Move the trajectories to the Traj directory.
 
 Example 2: Stapled Peptide (PDB: 8Q1R)
 1. Biasing Force Setup and Inference
