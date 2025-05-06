@@ -33,7 +33,7 @@ To run inference with biasing: Place the gmm_potential_model.pkl script into the
 2. Sidechain Generation and System Construction
 After inference, use the post-processing script:
 
-    SStructure_generations/P3-F
+    SStructure_generations/P3-F/DiffPIE_sidchain_CP.py
 
 This script integrates sidechains using MD simulation data. Required MD trajectories for this step can be downloaded from:[https://drive.google.com/drive/folders/1dFnwRA-LjiuNRPm_x5LmsAWaiW4Khl0h?usp=drive_link](https://drive.google.com/drive/folders/118ouP09jWunvZtXFiRzfB03JBGx3UkYj?usp=drive_link)
 
